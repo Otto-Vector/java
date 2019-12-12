@@ -55,15 +55,13 @@ public class Elements {
 	
 	public void ShowMonster() //Выводит данные одного объекта
  
-    {
-	if (this.HP>0)	//помечает знаком "=" при выводе монстра с положительным HP
-    	System.out.printf("=Имя:(%10s) Уровень:(%2d) ХП: %4d; Атака: (%5s) Защита:(%5s) :: %2d-Атк/%d/, %2d-принял/%d/\n",
-			this.Name,this.Lvl,this.HP,Elem[(this.ElAtk)],Elem[(this.ElDef)],
+	{
+	char Marker=(this.HP>0) ? "=" : " ";//помечает знаком "=" при выводе монстра с положительным HP
+
+		System.out.printf("%1s Имя:(%10s) Уровень:(%2d) ХП: %4d; Атака: (%5s) Защита:(%5s) :: %2d-Атк/%d/, %2d-принял/%d/\n",
+			Marker, this.Name,this.Lvl,this.HP,Elem[(this.ElAtk)],Elem[(this.ElDef)],
 				(int)this.CountHit,(int) ((this.CountHit*100)%100),(int)this.CountDef,(int) ((this.CountDef*100)%100));
-    else System.out.printf(" Имя:(%10s) Уровень:(%2d) ХП: %4d; Атака: (%5s) Защита:(%5s) :: %2d-Атк/%d/, %2d-принял/%d/\n",
-			this.Name,this.Lvl,this.HP,Elem[(this.ElAtk)],Elem[(this.ElDef)],
-				(int)this.CountHit,(int) ((this.CountHit*100)%100),(int)this.CountDef,(int) ((this.CountDef*100)%100));
-    }
+	}
 	
     public static void ShowMonstersList()
     { for (Elements M : MonstersList) M.ShowMonster(); //вызывает объект для вывода данных из массива MonsterList
